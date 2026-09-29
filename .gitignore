@@ -1,0 +1,25 @@
+# Build output: the app bundle, the bundled Python runtime, and the release DMG.
+build/
+.build/
+.swiftpm/
+
+# Python environments and caches.
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Recorded speech must never be committed by accident.
+# The UI cue sounds are the only audio that belongs in the repository.
+*.wav
+!app/Resources/Sounds/*.wav
+
+# Local agent and tooling state.
+.claude/settings.local.json
+.superpowers/
+.playwright-mcp/
+
+# Operating system and editor clutter.
+.DS_Store
+.idea/
+.vscode/
+*.swp

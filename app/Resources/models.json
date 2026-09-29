@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "models": [
+    {
+      "directory": "whisper-large-v3-turbo-mlx-q8",
+      "role": "Speech recognition",
+      "title": "Whisper large-v3-turbo",
+      "files": [
+        {
+          "path": "config.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-whisper-large-v3-turbo-mlx-q8/resolve/856d4e7d3fff2fff57e5df4bdbe922970b12eadc/config.json",
+          "bytes": 307,
+          "sha256": "ef0619c194ed4f0a3176135654f910aed503b864ca375c0276bfcadde2f85674"
+        },
+        {
+          "path": "weights.safetensors",
+          "url": "https://huggingface.co/fz77z/privacyflow-whisper-large-v3-turbo-mlx-q8/resolve/856d4e7d3fff2fff57e5df4bdbe922970b12eadc/weights.safetensors",
+          "bytes": 863659156,
+          "sha256": "1dffa280543756dcdd5324250c811c2a1ba8654c363d7d0b1a5da2b1563629df"
+        }
+      ]
+    },
+    {
+      "directory": "kev-router-v6-mlx",
+      "role": "Router",
+      "title": "Kev router",
+      "files": [
+        {
+          "path": "added_tokens.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/added_tokens.json",
+          "bytes": 605,
+          "sha256": "58b54bbe36fc752f79a24a271ef66a0a0830054b4dfad94bde757d851968060b"
+        },
+        {
+          "path": "chat_template.jinja",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/chat_template.jinja",
+          "bytes": 2427,
+          "sha256": "44d5f08f3f72b837eaad09f13a54c1f9f4eb58d75240334548b7fd52a5437fa5"
+        },
+        {
+          "path": "config.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/config.json",
+          "bytes": 2659,
+          "sha256": "3dde3c87681506b978bfedfa4726fa007a00df865d8c6833e22b7e0dbeb4ade6"
+        },
+        {
+          "path": "head.safetensors",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/head.safetensors",
+          "bytes": 1837352,
+          "sha256": "39693531930e43487bbb38c9349ff4fceaed093dd22902159485bb9b5542a2da"
+        },
+        {
+          "path": "kev.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/kev.json",
+          "bytes": 200,
+          "sha256": "0e563a46f717c0731cc6c974a2e34020da4fa284406bd31cd6d0c3521fb5ebb3"
+        },
+        {
+          "path": "merges.txt",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/merges.txt",
+          "bytes": 1671853,
+          "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+        },
+        {
+          "path": "model.safetensors",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/model.safetensors",
+          "bytes": 988097440,
+          "sha256": "50927d80d52e804305ff4df04eff0b7a58943b5e058a25ea0c9b76dbd2daf082"
+        },
+        {
+          "path": "special_tokens_map.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/special_tokens_map.json",
+          "bytes": 616,
+          "sha256": "6676f091c8bc4d1b50146427cfde92073402866b87b6e39223227931b70083e9"
+        },
+        {
+          "path": "tokenizer.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/tokenizer.json",
+          "bytes": 11421896,
+          "sha256": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/tokenizer_config.json",
+          "bytes": 4689,
+          "sha256": "60f6e7bc948cedd377a20f01d022ef664d026fbc93d72e0a9bdac233f8632181"
+        },
+        {
+          "path": "vocab.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-kev-router-v6-mlx/resolve/598483801ea1bacbe41891485688b70dce1aced6/vocab.json",
+          "bytes": 2776833,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        }
+      ]
+    },
+    {
+      "directory": "s1-mini-mlx-q8",
+      "role": "Text processor",
+      "title": "S1-mini by Superwhisper",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/README.md",
+          "bytes": 382,
+          "sha256": "d4afa90196fe9cc93d02b08c1e2374be7c71cbfa19375f353af2f1a105f5d202"
+        },
+        {
+          "path": "added_tokens.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/added_tokens.json",
+          "bytes": 707,
+          "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680"
+        },
+        {
+          "path": "chat_template.jinja",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/chat_template.jinja",
+          "bytes": 4168,
+          "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+        },
+        {
+          "path": "config.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/config.json",
+          "bytes": 1021,
+          "sha256": "ba4be8b0002d2c05a4c7a50e8d4a69711caf55f46503ba0eef7762f811d4587d"
+        },
+        {
+          "path": "generation_config.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/generation_config.json",
+          "bytes": 181,
+          "sha256": "6ca52b0bcb818c9e52db8ea18413494110c5f2def581b769f621dda951a7863b"
+        },
+        {
+          "path": "merges.txt",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/merges.txt",
+          "bytes": 1671853,
+          "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+        },
+        {
+          "path": "model.safetensors",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/model.safetensors",
+          "bytes": 633443038,
+          "sha256": "2e196d3cab3a6cc0afcbc5b48a81a7ed649441319b16066f490baf3a651ce60b"
+        },
+        {
+          "path": "model.safetensors.index.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/model.safetensors.index.json",
+          "bytes": 49770,
+          "sha256": "9e9d09d5f0eb73a33663314f68b24dd91d33e245ca3af15daed8e69b5adff982"
+        },
+        {
+          "path": "special_tokens_map.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/special_tokens_map.json",
+          "bytes": 613,
+          "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd"
+        },
+        {
+          "path": "tokenizer.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/tokenizer.json",
+          "bytes": 11422654,
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/tokenizer_config.json",
+          "bytes": 5440,
+          "sha256": "315888efe899b150fa2678959068a7718daed2ecd279df1bad06d4f540d9f7fe"
+        },
+        {
+          "path": "vocab.json",
+          "url": "https://huggingface.co/fz77z/privacyflow-s1-mini-mlx-q8/resolve/1345284bb86e0781212422332908f0a1224774b8/vocab.json",
+          "bytes": 2776833,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        }
+      ]
+    }
+  ]
+}

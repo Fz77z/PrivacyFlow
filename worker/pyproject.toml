@@ -1,0 +1,60 @@
+[project]
+name = "privacyflow-worker"
+version = "0.1.0"
+description = "PrivacyFlow's local inference worker: speech gate, Whisper, router and S1-mini."
+requires-python = "==3.12.*"
+
+# The complete set of packages the worker imports at runtime, each pinned
+# exactly, and nothing else. Install them without resolving their declared
+# dependencies:
+#
+#     uv pip install --no-deps -r pyproject.toml
+#     uv pip install --no-deps .
+#
+# Resolving would pull in what the worker never imports. mlx-whisper declares
+# torch, numba and scipy, which serve only its conversion script and word
+# timestamps (recognizer.py explains how timestamps are left out). mlx-lm
+# declares transformers>=5, but every S1-mini rewrite was validated under
+# 4.57.6, and worker.py refuses to start on any other pair. onnxruntime
+# declares protobuf and flatbuffers, which it does not import to run a model.
+#
+# safetensors is never imported, but transformers checks for its metadata at
+# import time and refuses to load without it.
+dependencies = [
+    "mlx==0.32.2",
+    "mlx-metal==0.32.2",
+    "mlx-lm==0.31.3",
+    "mlx-whisper==0.4.3",
+    "numpy==2.5.3",
+    "onnxruntime==1.30.0",
+    "transformers==4.57.6",
+    "tokenizers==0.22.2",
+    "safetensors==0.8.0",
+    "huggingface-hub==0.36.2",
+    "tiktoken==0.14.0",
+    "regex==2026.9.10",
+    "jinja2==3.1.6",
+    "markupsafe==3.0.3",
+    "pyyaml==6.0.3",
+    "packaging==26.3",
+    "filelock==4.0.1",
+    "tqdm==4.70.1",
+    "requests==2.34.2",
+    "charset-normalizer==3.5.1",
+    "urllib3==2.8.0",
+    "idna==3.20",
+    "certifi==2026.7.22",
+]
+
+[dependency-groups]
+dev = ["pytest==9.1.1"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["privacyflow_worker"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
