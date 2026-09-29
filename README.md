@@ -43,6 +43,41 @@ Most dictations go in untouched.
 
 It works in almost any app you can type in.
 
+## Fast
+
+PrivacyFlow is built so your text appears the moment you let go of the key.
+
+- **Most dictations skip the language model.** The small routing model reads each transcript first, and text that can go in as spoken goes straight in. Only dictations that need tidying wait for S1-mini.
+- **The models never go cold.** They are locked in memory, so macOS cannot compress or swap them out while you are not dictating. Measured right after the Mac was put under memory pressure, routing took about 0.1 seconds and a rewrite about 0.15 seconds. Without the lock, the same steps took 2.7 to 6.7 seconds.
+- **No round trip.** Everything runs on the Mac's GPU, so there is no server to wait for.
+
+## How it compares
+
+All of these open-source apps can turn speech into text on your Mac.
+The difference is what happens to your words next.
+To tidy up a dictation or apply a spoken correction, the others use a language model, and every one of them can be set up to send your text to a cloud AI to do it.
+PrivacyFlow does all of it on your Mac, every time.
+It has no code that could send your words anywhere.
+
+| | **PrivacyFlow** | [Handy](https://github.com/cjpais/Handy) | [FluidVoice](https://github.com/altic-dev/FluidVoice) | [OpenWhispr](https://github.com/OpenWhispr/openwhispr) | [VoiceInk](https://github.com/Beingpax/VoiceInk) | [Whispering](https://github.com/EpicenterHQ/epicenter/tree/main/apps/whispering) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Can send your voice to the cloud | **Never** | No | No | Yes, its cloud is the recommended setup | Optional | Optional |
+| Tidies text with a language model | ✅ On by default | Off by default, experimental | Off by default | ✅ On by default | Off by default | Off by default |
+| Can send your text to a cloud AI | **Never** | Optional | Optional | Yes, its cloud is the recommended setup | Optional | Optional |
+| On-device cleanup with nothing else to install | ✅ | Apple Intelligence only, macOS 26 | ✅ Closed-source runtime | ✅ | ✅ With 16 GB of memory | ❌ Needs Ollama or similar |
+| Skips the language model when the text is already fine | ✅ | ❌ You choose with a second hotkey | ❌ | ❌ | ❌ | ❌ |
+| Applies spoken corrections | ✅ | With your own prompt | ✅ With cleanup on | ✅ | ✅ With cleanup on | With your own prompt |
+| Saves your dictations by default | **No** | The last 5, with audio | Transcripts | Transcripts, and audio for 30 days | Transcripts and audio | Transcripts and audio |
+| Usage analytics | **None** | None | On by default | Opt-in | None | On by default |
+| Price | Free | Free | Free | Free, paid cloud plans | $25 or more for the prebuilt app | Free |
+
+"Optional" means you can connect a cloud provider, usually with your own API key.
+Checked against each project's own source code and documentation on 29 September 2026: Handy 0.9.7, FluidVoice 1.6.9, OpenWhispr 1.10.2, VoiceInk 2.21 and Whispering 7.11.0.
+If something here is out of date, please [open an issue](https://github.com/Fz77z/PrivacyFlow/issues).
+
+Where the others are ahead: several run on Windows and Linux, and all of them understand many languages.
+PrivacyFlow runs only on Apple Silicon Macs and understands English.
+
 ## How to install
 
 You need a Mac with Apple Silicon (M1 or later) running macOS 14 Sonoma or later, and about 3 GB of free disk space.
