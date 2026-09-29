@@ -172,12 +172,23 @@ struct Preview {
             fatalError("models.json is missing or invalid")
         }
         try? FileManager.default.createDirectory(at: scratch, withIntermediateDirectories: true)
+        // Input Monitoring as the setup scenes need it: setup-refused has it
+        // refused throughout, and the setup-granted scenes have it refused
+        // when the controller was made, as at launch, and allowed since.
+        let refused = scene == "setup-refused"
+        let grantedSinceLaunch = scene.hasPrefix("setup-granted")
+        if refused || grantedSinceLaunch {
+            Permissions.previewInputMonitoring = false
+        }
         let controller = AppController(dataDirectory: scratch, cacheDirectory: scratch.appendingPathComponent("cache"), manifest: manifest)
+        if grantedSinceLaunch {
+            Permissions.previewInputMonitoring = true
+        }
         Self.retained.append(controller)
         fillHistory(controller)
 
         if scene.hasPrefix("setup") {
-            if scene == "setup-downloading" {
+            if scene == "setup-downloading" || scene == "setup-granted-downloading" {
                 controller.installer.previewDownloading(completed: 1_130_000_000, total: 2_400_000_000, model: "Whisper large-v3-turbo")
             } else if scene == "setup-failed" {
                 controller.installer.previewFailure("This build of PrivacyFlow does not say where to download weights.safetensors of Whisper large-v3-turbo from, so it cannot be installed. The model list has no address for it yet.")

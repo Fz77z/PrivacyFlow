@@ -69,7 +69,9 @@ A setup window walks you through the rest:
 | Accessibility | To paste the text into the app you are using |
 | Input Monitoring | To notice the dictation key while another app is in front |
 
+If PrivacyFlow is missing from the Input Monitoring list, add it with the **+** button.
 Quit and reopen PrivacyFlow after granting Accessibility and Input Monitoring; macOS applies them at launch.
+macOS may offer to do this for you, and that is safe even while the models download: the download picks up where it left off.
 
 ## How to use
 

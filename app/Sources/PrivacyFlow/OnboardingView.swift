@@ -37,7 +37,7 @@ struct OnboardingView: View {
                     )
                     PermissionStep(
                         title: "Input Monitoring",
-                        detail: "To notice \(controller.settings.dictationShortcut.label) while another app is in front. Turn on PrivacyFlow in the list that opens. macOS applies this after a relaunch.",
+                        detail: inputMonitoringDetail,
                         done: Permissions.inputMonitoring && controller.inputMonitoringAtLaunch,
                         action: inputMonitoringAction
                     )
@@ -91,16 +91,38 @@ struct OnboardingView: View {
         }
     }
 
+    /// What Input Monitoring needs next, in words.
+    ///
+    /// macOS itself offers to quit and reopen PrivacyFlow the moment it is
+    /// allowed, often while the models are still downloading, so the step says
+    /// beforehand that either answer is safe. A relaunch mid-download costs
+    /// nothing, because the download resumes, but PrivacyFlow does not ask for
+    /// one itself until the models are done.
+    private var inputMonitoringDetail: String {
+        let purpose = "To notice \(controller.settings.dictationShortcut.label) while another app is in front."
+        if !Permissions.inputMonitoring {
+            return "\(purpose) Turn on PrivacyFlow in the list that opens, or add it with the + button if it is missing. macOS then offers to quit and reopen PrivacyFlow, which is safe even while the models download."
+        }
+        if controller.inputMonitoringAtLaunch {
+            return purpose
+        }
+        if installer.isInstalling {
+            return "Allowed. It takes effect when PrivacyFlow relaunches, which you can do here once the models have finished."
+        }
+        return "Allowed. Relaunch PrivacyFlow to start using it."
+    }
+
     /// The event tap was built at launch and does not pick up a later grant,
-    /// so once it is granted the next step is a relaunch.
+    /// so once it is granted the next step is a relaunch, offered only once
+    /// the models are no longer downloading.
     private var inputMonitoringAction: (String, () -> Void)? {
         if !Permissions.inputMonitoring {
             return ("Open Settings", Permissions.openInputMonitoringSettings)
         }
-        if !controller.inputMonitoringAtLaunch {
-            return ("Relaunch", controller.relaunch)
+        if controller.inputMonitoringAtLaunch || installer.isInstalling {
+            return nil
         }
-        return nil
+        return ("Relaunch", controller.relaunch)
     }
 }
 

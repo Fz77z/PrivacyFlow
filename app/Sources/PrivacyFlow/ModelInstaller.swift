@@ -43,6 +43,10 @@ final class ModelInstaller: ObservableObject {
 
     var isInstalled: Bool { phase == .installed }
 
+    /// Whether models are being downloaded or verified, from the moment that
+    /// is asked for rather than from its first progress report.
+    var isInstalling: Bool { running }
+
     /// Continue an install that was downloading when the app quit: the user
     /// already asked for it. One that ended in failure is not retried here; it
     /// waits for the user. Called once at launch, after `onInstalled` is set.
@@ -97,6 +101,7 @@ final class ModelInstaller: ObservableObject {
     /// Put the installer in a fixed state for a preview screenshot.
     func showPreview(phase: Phase, completed: Int64, total: Int64, model: String?) {
         self.phase = phase
+        running = phase == .downloading || phase == .verifying
         completedBytes = completed
         totalBytes = total
         currentModel = model

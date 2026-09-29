@@ -29,10 +29,19 @@ enum Permissions {
         AXIsProcessTrusted()
     }
 
+    #if DEBUG
+    /// Preview scenes only: stands in for the live answer, so a screenshot
+    /// shows a fixed state whatever this Mac has allowed.
+    static var previewInputMonitoring: Bool?
+    #endif
+
     /// Whether PrivacyFlow's event tap can see the dictation key while another app
     /// is focused.
     static var inputMonitoring: Bool {
-        CGPreflightListenEventAccess()
+        #if DEBUG
+        if let previewInputMonitoring { return previewInputMonitoring }
+        #endif
+        return CGPreflightListenEventAccess()
     }
 
     static func requestMicrophone(_ completion: @escaping (Bool) -> Void) {
